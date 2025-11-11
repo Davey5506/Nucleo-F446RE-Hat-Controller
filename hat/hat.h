@@ -68,7 +68,7 @@ void set_pin_mode(GPIO_TypeDef* GPIOx, uint8_t pin, PIN_MODE mode);
 void set_pin_pull(GPIO_TypeDef* GPIOx, uint8_t pin, PIN_PULL pull);
 void set_output_type(GPIO_TypeDef* GPIOx, uint8_t pin, PIN_OUTPUT_TYPE type);
 void write_pin(GPIO_TypeDef* GPIOx, uint8_t pin, PIN_VALUE value);
-uint8_t read_pin(GPIO_TypeDef* GPIOx, uint8_t pin);
+PIN_VALUE read_pin(GPIO_TypeDef* GPIOx, uint8_t pin);
 void toggle_pin(GPIO_TypeDef* GPIOx, uint8_t pin);
 
 // SysTick and Timer functions
