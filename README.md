@@ -8,7 +8,7 @@ This library is able to:
 - Control a Seven Segment Display.
 - Control continous and positional servos.
 ## Installation
-To add Hat Controller to a PlatformIO project, download this repository and copy the hat folder into the lib folder of your PlatformIO project, as shown below.
+To add Hat Controller to a PlatformIO project, create a folder in the lib directory and name it 'hat'. Download this repository and copy the files into that folder you created, as shown below.
 ```
 |--MyProject
 |  |
