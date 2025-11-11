@@ -55,25 +55,25 @@ void init_pmod(PMOD_t pmod){
     }
 }
 
-void set_pin_mode(GPIO_TypeDef* GPIOx, uint8_t pin, PIN_MODE mode){
+void set_pin_mode(GPIO_TypeDef* GPIOx, uint8_t pin, enum PIN_MODE mode){
     GPIOx->MODER &= ~(0x3 << (pin * 2));
     GPIOx->MODER |= (mode << (pin * 2));
     return;
 }
 
-void set_pin_pull(GPIO_TypeDef* GPIOx, uint8_t pin, PIN_PULL pull){
+void set_pin_pull(GPIO_TypeDef* GPIOx, uint8_t pin, enum PIN_PULL pull){
     GPIOx->PUPDR &= ~(0x3 << (pin * 2));
     GPIOx->PUPDR |= (pull << (pin * 2));
     return;
 }
 
-void set_output_type(GPIO_TypeDef* GPIOx, uint8_t pin, PIN_OUTPUT_TYPE type){
+void set_output_type(GPIO_TypeDef* GPIOx, uint8_t pin, enum PIN_OUTPUT_TYPE type){
     GPIOx->OTYPER &= ~(0x1 << pin);
     GPIOx->OTYPER |= (type << pin);
     return;
 }
 
-void write_pin(GPIO_TypeDef* GPIOx, uint8_t pin, PIN_VALUE value){
+void write_pin(GPIO_TypeDef* GPIOx, uint8_t pin, enum PIN_VALUE value){
     if(value){
         GPIOx->BSRR |= (1 << pin);
     }else{
@@ -82,7 +82,7 @@ void write_pin(GPIO_TypeDef* GPIOx, uint8_t pin, PIN_VALUE value){
     return;
 }
 
-PIN_VALUE_t read_pin(GPIO_TypeDef* GPIOx, uint8_t pin){
+enum PIN_VALUE read_pin(GPIO_TypeDef* GPIOx, uint8_t pin){
     return (GPIOx->IDR >> pin) & 0x1;
 }
 

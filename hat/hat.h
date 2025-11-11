@@ -32,10 +32,10 @@ typedef struct{
     uint8_t SERVO_FEEDBACK_PIN;
 }SERVO_t;
 
-typedef enum {
+enum PIN_VALUE{
     LOW = 0U,
     HIGH = 1U
-}PIN_VALUE_t;
+};
 
 enum PIN_MODE{
     INPUT = 0U,
@@ -64,11 +64,11 @@ extern volatile const ULTRA_SOUND_t ULTRA_SOUND;
 // GPIO pin functions
 void init_gpio(GPIO_TypeDef* GPIOx);
 void init_pmod(PMOD_t pmod);
-void set_pin_mode(GPIO_TypeDef* GPIOx, uint8_t pin, PIN_MODE mode);
-void set_pin_pull(GPIO_TypeDef* GPIOx, uint8_t pin, PIN_PULL pull);
-void set_output_type(GPIO_TypeDef* GPIOx, uint8_t pin, PIN_OUTPUT_TYPE type);
-void write_pin(GPIO_TypeDef* GPIOx, uint8_t pin, PIN_VALUE value);
-PIN_VALUE_t read_pin(GPIO_TypeDef* GPIOx, uint8_t pin);
+void set_pin_mode(GPIO_TypeDef* GPIOx, uint8_t pin, enum PIN_MODE mode);
+void set_pin_pull(GPIO_TypeDef* GPIOx, uint8_t pin, enum PIN_PULL pull);
+void set_output_type(GPIO_TypeDef* GPIOx, uint8_t pin, enum PIN_OUTPUT_TYPE type);
+void write_pin(GPIO_TypeDef* GPIOx, uint8_t pin, enum PIN_VALUE value);
+enum PIN_VALUE read_pin(GPIO_TypeDef* GPIOx, uint8_t pin);
 void toggle_pin(GPIO_TypeDef* GPIOx, uint8_t pin);
 
 // SysTick and Timer functions
