@@ -32,4 +32,4 @@ int main(void){
 }
 ```
 ## License
-[](/LICENSE)
+[AGPL-3.0 license](/LICENSE)
