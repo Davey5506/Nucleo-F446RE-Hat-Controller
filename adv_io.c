@@ -50,7 +50,11 @@ void init_servo(SERVO_t* servo){
     if (servo->SERVO_PWM_PIN >= 8) {
         servo->SERVO_PIN_PORT->AFR[1] |= (2 << ((servo->SERVO_PWM_PIN - 8) * 4)); 
     } else {
-        servo->SERVO_PIN_PORT->AFR[0] |= (2 << (servo->SERVO_PWM_PIN * 4));
+        if (servo->SERVO_PIN_PORT == GPIOC && servo->SERVO_PWM_PIN == 6) { // PC6 for TIM8
+            servo->SERVO_PIN_PORT->AFR[0] |= (3 << (servo->SERVO_PWM_PIN * 4)); // AF3 for TIM8
+        } else {
+            servo->SERVO_PIN_PORT->AFR[0] |= (2 << (servo->SERVO_PWM_PIN * 4)); // AF2 for TIM3
+        }
     }
 }
 
